@@ -1,0 +1,23 @@
+{
+    "package_name": "test",
+    "file_name": "test",
+    "url": "test",
+    "last_version": "test",
+    "current_version": "test",
+    "running_type": "sh",
+    "script_path": "test",
+    "depdencies": [
+        "a",
+        "b"
+    ],
+    "envs": [
+        {
+            "name": "test1",
+            "value": "test2"
+        },
+        {
+            "name": "test3",
+            "value": "test4"
+        }
+    ]
+}
