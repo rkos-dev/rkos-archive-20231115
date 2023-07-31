@@ -1,7 +1,8 @@
 use petgraph::graph::NodeIndex;
+use serde::de::DeserializeOwned;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use std::fs::{self, File};
+use std::fs::File;
 use std::io::{BufReader, Write};
 use std::path::PathBuf;
 
@@ -24,11 +25,30 @@ pub struct PackageTemplete {
     pub envs: Vec<Env>,
 }
 
-pub struct PackageGraphRaw {
-    pub index: u64,
-    pub packages: HashMap<String, u64>,
+pub struct PackageGraphRawData {
+    pub package_index: u64,
+    pub package_name_to_index: HashMap<String, u64>,
     pub package_vec: Vec<PackageTemplete>,
-    pub package_node: Vec<NodeIndex>,
+    pub package_node_vec: Vec<NodeIndex>,
+}
+
+pub trait JsonObj<T>
+where
+    T: DeserializeOwned + Serialize,
+{
+    fn load(file_path: PathBuf) -> T {
+        let file = File::open(file_path).unwrap();
+        let reader = BufReader::new(file);
+        let value: T = serde_json::from_reader(reader).unwrap();
+        value
+    }
+    fn store(json_obj: &T, file_path: PathBuf) {
+        let json_string_stream = serde_json::to_string(json_obj).unwrap();
+        File::create(file_path)
+            .unwrap()
+            .write_all(json_string_stream.as_bytes())
+            .expect("store to json failed");
+    }
 }
 
 impl PackageTemplete {
@@ -36,20 +56,7 @@ impl PackageTemplete {
         Vec::new()
     }
 
-    pub fn load(file_path: PathBuf) -> Self {
-        let file = File::open(file_path).unwrap();
-        let reader = BufReader::new(file);
-        let value: PackageTemplete = serde_json::from_reader(reader).unwrap();
-        value
-    }
-
-    pub fn store(&self, file_path: PathBuf) {
-        let json_string_stream = serde_json::to_string(self).unwrap();
-        File::create(file_path)
-            .unwrap()
-            .write_all(json_string_stream.as_bytes())
-            .expect("store to json failed");
-    }
+    pub fn new()
 
     //    pub fn new_templete(target_path: PathBuf, package_name: String) {
     //        let mut target_path = target_path.to_owned().push(package_name);
