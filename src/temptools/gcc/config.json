@@ -1,0 +1,30 @@
+{
+  "package_name": "gcc",
+  "package_version": "13.2.0",
+  "package_url": "https://ftp.gnu.org/gnu/gcc/gcc-13.2.0/gcc-13.2.0.tar.xz",
+  "depends": [
+    "m4",
+    "ncurses",
+    "bash",
+    "coreutils",
+    "diffutils",
+    "file",
+    "findutils",
+    "gawk",
+    "grep",
+    "gzip",
+    "make",
+    "patch",
+    "sed",
+    "tar",
+    "xz",
+    "binutils"
+  ],
+  "rundeps": ["bash", "binutils", "glibc", "mpc", "python"],
+  "testdeps": ["dejagnu", "expect", "shadow"],
+  "before": ["none"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}

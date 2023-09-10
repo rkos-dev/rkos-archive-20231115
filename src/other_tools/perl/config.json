@@ -1,0 +1,23 @@
+{
+  "package_name": "perl",
+  "package_version": "5.38.0",
+  "package_url": "https://www.cpan.org/src/5.0/perl-5.38.0.tar.xz",
+  "depends": [
+    "bash",
+    "binutils",
+    "coreutils",
+    "gawk",
+    "gcc",
+    "glibc",
+    "grep",
+    "make",
+    "sed"
+  ],
+  "rundeps": ["gdbm", "glibc", "libxcrypt"],
+  "testdeps": ["iana_etc", "less.", "procps_ng"],
+  "before": ["autoconf"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}

@@ -1,0 +1,13 @@
+{
+  "package_name": "m4",
+  "package_version": "1.4.19",
+  "package_url": "https://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.xz",
+  "depends": [],
+  "rundeps": ["bash", "glibc"],
+  "testdeps": ["diffutils"],
+  "before": ["autoconf", "bison"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}

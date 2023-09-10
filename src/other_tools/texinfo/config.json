@@ -1,0 +1,25 @@
+{
+  "package_name": "texinfo",
+  "package_version": "7.0.3",
+  "package_url": "https://ftp.gnu.org/gnu/texinfo/texinfo-7.0.3.tar.xz",
+  "depends": [
+    "bash",
+    "binutils",
+    "coreutils",
+    "gcc",
+    "gettext",
+    "glibc",
+    "grep",
+    "make",
+    "ncurses",
+    "patch",
+    "sed"
+  ],
+  "rundeps": ["glibc", "ncurses"],
+  "testdeps": ["none"],
+  "before": ["none"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}

@@ -1,0 +1,17 @@
+{
+  "package_name": "coreutils",
+  "package_version": "9.3",
+  "package_url": "https://ftp.gnu.org/gnu/coreutils/coreutils-9.3.tar.xz",
+  "depends": [
+    "m4",
+    "ncurses",
+    "bash"
+  ],
+  "rundeps": ["glibc"],
+  "testdeps": ["diffutils", "e2fsprogs", "findutils", "shadow", "util_linux"],
+  "before": ["bash", "diffutils", "findutils", "man_db"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}

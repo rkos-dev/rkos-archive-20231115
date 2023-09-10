@@ -1,0 +1,22 @@
+{
+  "package_name": "grep",
+  "package_version": "3.11",
+  "package_url": "https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz",
+  "depends": [
+    "m4",
+    "ncurses",
+    "bash",
+    "coreutils",
+    "diffutils",
+    "file",
+    "findutils",
+    "gawk"
+  ],
+  "rundeps": ["glibc"],
+  "testdeps": ["gawk"],
+  "before": ["man_db"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}

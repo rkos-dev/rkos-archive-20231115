@@ -1,0 +1,13 @@
+{
+  "package_name": "bash",
+  "package_version": "5.2.15",
+  "package_url": "https://ftp.gnu.org/gnu/bash/bash-5.2.15.tar.gz",
+  "depends": ["m4", "ncurses"],
+  "rundeps": ["glibc", "ncurses", "readline"],
+  "testdeps": ["expect", "shadow"],
+  "before": ["none"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}

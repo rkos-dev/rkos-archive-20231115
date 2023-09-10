@@ -1,0 +1,28 @@
+{
+  "package_name": "xz",
+  "package_version": "5.4.4",
+  "package_url": "https://tukaani.org/xz/xz-5.4.4.tar.xz",
+  "depends": [
+    "m4",
+    "ncurses",
+    "bash",
+    "coreutils",
+    "diffutils",
+    "file",
+    "findutils",
+    "gawk",
+    "grep",
+    "gzip",
+    "make",
+    "patch",
+    "sed",
+    "tar"
+  ],
+  "rundeps": ["glibc"],
+  "testdeps": ["none"],
+  "before": ["file", "grub", "kmod", "elfutils", "man_db"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}

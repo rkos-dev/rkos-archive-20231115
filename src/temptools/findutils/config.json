@@ -1,0 +1,20 @@
+{
+  "package_name": "findutils",
+  "package_version": "4.9.0",
+  "package_url": "https://ftp.gnu.org/gnu/findutils/findutils-4.9.0.tar.xz",
+  "depends": [
+    "m4",
+    "ncurses",
+    "bash",
+    "coreutils",
+    "diffutils",
+    "file"
+  ],
+  "rundeps": ["bash", "glibc"],
+  "testdeps": ["dejagnu", "diffutils", "expect"],
+  "before": ["none"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}
