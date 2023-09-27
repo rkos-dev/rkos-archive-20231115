@@ -1,0 +1,21 @@
+{
+  "package_name": "gawk",
+  "package_version": "5.2.2",
+  "package_url": "https://ftp.gnu.org/gnu/gawk/gawk-5.2.2.tar.xz",
+  "depends": [
+    "m4",
+    "ncurses",
+    "bash",
+    "coreutils",
+    "diffutils",
+    "file",
+    "findutils"
+  ],
+  "rundeps": ["bash", "glibc", "mpfr"],
+  "testdeps": ["diffutils"],
+  "before": ["none"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}

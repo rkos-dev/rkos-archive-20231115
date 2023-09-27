@@ -1,0 +1,24 @@
+{
+  "package_name": "make",
+  "package_version": "4.4.1",
+  "package_url": "https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz",
+  "depends": [
+    "m4",
+    "ncurses",
+    "bash",
+    "coreutils",
+    "diffutils",
+    "file",
+    "findutils",
+    "gawk",
+    "grep",
+    "gzip"
+  ],
+  "rundeps": ["glibc"],
+  "testdeps": ["perl", "procps_ng"],
+  "before": ["none"],
+  "optdeps": ["none"],
+  "script_path": "$PACKAGE_PATH/script/build.sh",
+  "running_type": "sh",
+  "envs": [{ "name": "PATH", "value": "$RKOS_TOOLCHAINS:$PATH" }]
+}
